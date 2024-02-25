@@ -12,8 +12,9 @@ import './App.css';
 
 
 async function fetchData(){
+  //second api key if the current doesnt work yLROYckgz08fodH2IIvOcMcwUDBQAp0I
   var myHeaders = new Headers();
-  myHeaders.append("apikey", process.env.BACKUP_FOREX_FIXER_API_KEY);
+  myHeaders.append("apikey", "9sOx2d1gWYZrKY0uD4hCbOMIQzLcL4KQ");
   
   var requestOptions = {
     method: 'GET',
@@ -36,8 +37,8 @@ async function fetchData(){
 
 
 function App() {
-  const [originalRates, setOriginalRates] = useState(null);
-  const [newRates, setNewRates] = useState(null);
+  const [originalRates, setOriginalRates] = useState();
+  const [newRates, setNewRates] = useState();
 
   useEffect(() => {
     fetchData().then(data => {
