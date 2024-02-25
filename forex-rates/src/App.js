@@ -21,7 +21,7 @@ async function fetchData(){
     redirect: 'follow',
     headers: myHeaders
   };
-  const symbol = ["HKD","EUR","JPY","MYR"]
+ 
   const response =  await  fetch(`https://api.apilayer.com/fixer/latest?symbols=&base=`, requestOptions)
   const data = await response.json();
 
@@ -31,8 +31,7 @@ async function fetchData(){
     newRates[key] = Number(value) + 10.0002;
   }
 
-  console.log("data rates", data.rates)
-  console.log("newRates", newRates)
+ 
 
   return {originalRates: data.rates, newRates: newRates};
 }
@@ -53,9 +52,8 @@ function App() {
   }, []);
 
   const isEven = (number) => {
-    // Extract the decimal part of the number
+   
   const decimalPart = number % 1;
-  // Check if the decimal part is even
   return Math.round(decimalPart * 100) % 2 === 0;
   };
 
