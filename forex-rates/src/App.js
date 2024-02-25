@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
  import { useState, useEffect } from 'react';
  import Table from '@mui/material/Table';
@@ -14,7 +13,7 @@ import './App.css';
 
 async function fetchData(){
   var myHeaders = new Headers();
-  myHeaders.append("apikey", "yLROYckgz08fodH2IIvOcMcwUDBQAp0I");
+  myHeaders.append("apikey", process.env.BACKUP_FOREX_FIXER_API_KEY);
   
   var requestOptions = {
     method: 'GET',
@@ -30,8 +29,6 @@ async function fetchData(){
   for(const [key, value] of Object.entries(data.rates)){
     newRates[key] = Number(value) + 10.0002;
   }
-
- 
 
   return {originalRates: data.rates, newRates: newRates};
 }
